@@ -1,0 +1,71 @@
+# ========================
+# Python / Backend
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+dist/
+build/
+*.egg-info/
+.eggs/
+*.egg
+
+# SQLite local DB (use PostgreSQL in prod)
+backend/sql_app.db
+
+# Uploaded files (managed by Cloud Storage in prod)
+backend/uploads/
+
+# ========================
+# Environment & Secrets
+# ========================
+.env
+.env.*
+!.env.example
+
+# ========================
+# Frontend / Node
+# ========================
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.pnp
+frontend/.pnp.*
+frontend/.yarn/*
+!frontend/.yarn/patches
+!frontend/.yarn/plugins
+!frontend/.yarn/releases
+!frontend/.yarn/versions
+frontend/coverage/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.pnpm-debug.log*
+frontend/*.tsbuildinfo
+
+# ========================
+# Docker
+# ========================
+.dockerignore
+
+# ========================
+# OS
+# ========================
+.DS_Store
+Thumbs.db
+*.pem
+
+# ========================
+# IDE
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
