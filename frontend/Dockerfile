@@ -6,6 +6,7 @@ WORKDIR /app
 # Accept backend URL at build time (Next.js bakes NEXT_PUBLIC_* into the bundle)
 ARG NEXT_PUBLIC_API_URL
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV NODE_ENV=production
 
 COPY package*.json ./
 RUN npm ci
@@ -26,7 +27,8 @@ COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
 # Cloud Run injects PORT; Next.js standalone server reads it
-ENV PORT=3000
-EXPOSE 3000
+ENV PORT=8080
+ENV HOSTNAME="0.0.0.0"
+EXPOSE 8080
 
 CMD ["node", "server.js"]

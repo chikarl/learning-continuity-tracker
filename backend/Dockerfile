@@ -19,6 +19,6 @@ RUN mkdir -p uploads && chown -R appuser:appgroup /app
 
 USER appuser
 
-# Cloud Run sets PORT env variable; default to 8000 locally
-ENV PORT=8000
+# Cloud Run sets PORT env variable; default to 8080 for standard compliance
+ENV PORT=8080
 CMD uvicorn app.main:app --host 0.0.0.0 --port $PORT

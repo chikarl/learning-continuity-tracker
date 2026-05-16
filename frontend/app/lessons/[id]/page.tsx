@@ -72,7 +72,7 @@ const ContentViewer = ({ lesson }: { lesson: Lesson | OfflineLesson }) => {
           <FileText size={14} className="text-primary" />
           <span>PDF Document</span>
           <a
-            href={`http://localhost:8000/${lesson.content_url}`}
+            href={`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/${lesson.content_url}`}
             target="_blank"
             rel="noopener noreferrer"
             className="ml-auto text-primary font-medium hover:underline"
@@ -81,7 +81,7 @@ const ContentViewer = ({ lesson }: { lesson: Lesson | OfflineLesson }) => {
           </a>
         </div>
         <iframe
-          src={`http://localhost:8000/${lesson.content_url}`}
+          src={`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/${lesson.content_url}`}
           className="w-full h-[600px]"
           title="Lesson PDF"
         />
@@ -92,7 +92,7 @@ const ContentViewer = ({ lesson }: { lesson: Lesson | OfflineLesson }) => {
   if (contentType === 'video' && 'content_url' in lesson && lesson.content_url) {
     return (
       <div className="rounded-2xl overflow-hidden border border-gray-100 bg-black">
-        <video controls className="w-full max-h-[480px]" src={`http://localhost:8000/${lesson.content_url}`}>
+        <video controls className="w-full max-h-[480px]" src={`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/${lesson.content_url}`}>
           Your browser does not support the video tag.
         </video>
       </div>
